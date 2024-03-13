@@ -1,0 +1,103 @@
+Electronics:
+  - name: Smartphone
+    price: 500
+    cost: 300
+  - name: Laptop
+    price: 1000
+    cost: 700
+  - name: Tablet
+    price: 300
+    cost: 200
+  - name: Smartwatch
+    price: 200
+    cost: 120
+  - name: Headphones
+    price: 100
+    cost: 60
+  - name: Camera
+    price: 600
+    cost: 350
+  - name: TV
+    price: 800
+    cost: 500
+  - name: Gaming Console
+    price: 400
+    cost: 250
+
+Clothing:
+  - name: T-shirt
+    price: 20
+    cost: 10
+  - name: Jeans
+    price: 50
+    cost: 30
+  - name: Dress
+    price: 80
+    cost: 45
+  - name: Sneakers
+    price: 70
+    cost: 40
+  - name: Jacket
+    price: 90
+    cost: 50
+  - name: Skirt
+    price: 40
+    cost: 25
+  - name: Shirt
+    price: 30
+    cost: 20
+  - name: Sweater
+    price: 60
+    cost: 35
+
+Books:
+  - name: The Great Gatsby
+    price: 10
+    cost: 5
+  - name: To Kill a Mockingbird
+    price: 15
+    cost: 8
+  - name: 1984
+    price: 12
+    cost: 7
+  - name: The Catcher in the Rye
+    price: 11
+    cost: 6
+  - name: The Lord of the Rings
+    price: 18
+    cost: 10
+  - name: Harry Potter and the Sorcerer's Stone
+    price: 20
+    cost: 12
+  - name: Pride and Prejudice
+    price: 14
+    cost: 8
+  - name: The Hobbit
+    price: 16
+    cost: 9
+
+Home:
+  - name: Coffee Maker
+    price: 50
+    cost: 30
+  - name: Vacuum Cleaner
+    price: 200
+    cost: 150
+  - name: Blender
+    price: 40
+    cost: 25
+  - name: Toaster
+    price: 30
+    cost: 18
+  - name: Microwave
+    price: 80
+    cost: 50
+  - name: Air Purifier
+    price: 100
+    cost: 60
+  - name: Robot Vacuum
+    price: 300
+    cost: 200
+  - name: Slow Cooker
+    price: 70
+    cost: 40
