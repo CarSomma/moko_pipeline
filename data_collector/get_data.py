@@ -7,6 +7,7 @@ import json
 import time 
 import yaml
 from datetime import datetime
+import asyncio
 
 
 # import product_data.yaml
@@ -20,7 +21,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 
-def stream_data():
+async def stream_data():
     while True:
         category = faker.random_element(elements=product_data.keys())
         product = faker.random_element(elements=product_data[category])
@@ -40,7 +41,8 @@ def stream_data():
         logging.info("INCOMING DATA:\n\n %s", json_data_incoming)
         yield json_data_incoming
         delay = random.uniform(10, 50)
-        time.sleep(delay)
+        #time.sleep(delay)
+        await asyncio.sleep(delay)
 
 
 

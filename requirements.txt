@@ -1,2 +1,5 @@
 Faker
 PyYAML
+fastapi
+pymongo
+uvicorn
