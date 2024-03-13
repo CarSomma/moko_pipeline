@@ -47,26 +47,8 @@ async def root():
     return {"message": "Hello World"}
 
 
-# # GET endpoint to fetch data from MongoDB
-# @fast_appl.get("/fetch_data_from_mongo")
-# async def fetch_data_one_by_one():
-#     try:
-#         cursor = collection.find()  # Get cursor for iterating over documents
-#         return StreamingResponse(generate(cursor))
-#     except Exception as e:
-#         return {"error": f"An error occurred while fetching data: {e}"}
-
-# # Generator to convert cursor to JSON and yield line by line
-# async def generate(cursor):
-#     for document in cursor:
-#         # Convert ObjectId to string for JSON serialization
-#         document["_id"] = str(document["_id"])
-#         #yield json.dumps(document, indent=4) + ",\n"
-#         #yield JSONResponse(content=jsonable_encoder(document))
-#         #yield jsonable_encoder(document)
-#         yield json_util.dumps(document,indent=4) + ',\n'
-
-@fast_appl.get("/data")
+# GET endpoint to fetch data from MongoDB
+@fast_appl.get("/fetch_data_from_mongo")
 async def fetch_data():
     async def _stream_data():
         cursor = collection.find()  # Assuming you have a MongoDB collection
@@ -81,14 +63,7 @@ async def fetch_data():
         yield ']'  # End of the JSON array
                 
     return StreamingResponse(_stream_data(), media_type='application/json')
-    # async def _stream_data():
-    #     cursor = collection.find()  # Assuming you have a MongoDB collection
-    #     for _, document in enumerate(cursor):
-    #         # Convert ObjectId to string for JSON serialization
-    #         document["_id"] = str(document["_id"])
-    #         yield json.dumps(document)
-                
-    # return StreamingResponse(_stream_data(), media_type='application/json')
+    
 
 if __name__ == "__main__":
    uvicorn.run(fast_appl)
