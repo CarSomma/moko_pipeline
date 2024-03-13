@@ -38,7 +38,7 @@ async def lifespan(task=background_insertion_task()):
 
 
 # Integrate lifespan event handler with FastAPI application
-fast_appl = FastAPI(lifespan=lifespan,default_response_class=JSONResponse)
+fast_appl = FastAPI(lifespan=lifespan)
 
 
 # GET endpoint to retrieve hello world message
