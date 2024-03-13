@@ -10,24 +10,24 @@ import json
 import asyncio
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
 # Initialize MongoDB connection
 client = MongoClient("mongodb://localhost:27017/")
-db = client["mydatabase"]
-collection = db["mycollection"]
+db = client["my_stream_database"]
+collection = db["my_stream_collection"]
 
 # Define a background task for continuous data insertion
 async def background_insertion_task():
-    logging.info("Starting background task for continuous data insertion")
+    logging.info("STARTING BACKGROUND TASK FOR CONTINUOUS DATA INSERTION")
     async for data_point in stream_data():
         try:
             # Insert data into MongoDB collection
             collection.insert_one(json.loads(data_point))
-            logging.info("Data inserted into MongoDB")
+            logging.info("DATA INSERTED IN MongoDB")
         except Exception as e:
             # Handle any exceptions during insertion
-            logging.error(f"Error inserting data into MongoDB: {e}")
+            logging.error(f"ERROR INSERTING DATA INTO MongoDB: {e}")
 
 # Define lifespan event handler to manage MongoDB connection and background task
 @asynccontextmanager
@@ -41,16 +41,12 @@ async def lifespan(task=background_insertion_task()):
 fast_appl = FastAPI(lifespan=lifespan)
 
 
-
-
-
-
-
-# # GET endpoint to retrieve hello world message
+# GET endpoint to retrieve hello world message
 @fast_appl.get("/")
 async def root():
     return {"message": "Hello World"}
 
+# GET endpoint to fetch data from MongoDB
 @fast_appl.get("/fetch_data_from_mongo")
 async def fetch_data_one_by_one():
     try:
@@ -63,7 +59,7 @@ async def generate(cursor):
     for document in cursor:
         # Convert ObjectId to string for JSON serialization
         document["_id"] = str(document["_id"])
-        yield json.dumps(document) + "\n"
+        yield json.dumps(document, indent=4)
 
 
 
