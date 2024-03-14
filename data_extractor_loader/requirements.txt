@@ -1,1 +1,1 @@
-dlt[duckdb]
+"dlt[duckdb]"
