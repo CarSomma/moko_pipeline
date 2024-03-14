@@ -16,7 +16,6 @@ def fastapi_resource():#api_secret_key=dlt.secrets.value):
 
 if __name__ == '__main__':
     
-    
     # configure the pipeline with your destination details
     pipeline = dlt.pipeline(
         pipeline_name='fastapi',
@@ -26,14 +25,14 @@ if __name__ == '__main__':
 
     # print the data yielded from resource
     data = list(fastapi_resource())
-    print(data)
+    #print(data)
 
-    # run the pipeline with your parameters
+    # run the pipeline 
     try:
         load_info = pipeline.run(fastapi_resource())
-        print(load_info)
+        logging.info("PIPELINE INFO:\n{load_info}")
     except PipelineStepFailed as step_failed:
-        print(f"We failed at step: {step_failed.step} with step info {step_failed.step_info}")
+        logging.debug(f"WE FAILED AT THE STEP: {step_failed.step} WITH STEP INFO {step_failed.step_info}")
         raise
     
 
