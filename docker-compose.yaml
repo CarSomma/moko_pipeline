@@ -1,0 +1,35 @@
+version: "3.8"
+name: "mock-pipeline"
+services:
+  mongo-service:
+    image: mongo:latest
+    container_name: mongo_container
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+
+    networks:
+    - mongo_net
+  
+  fastapi_service:
+    build: 
+      context: ./data_collector
+      dockerfile: Dockerfile
+    container_name: fastapi_app
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongo-service
+    networks:
+      - mongo_net
+
+
+networks:
+  mongo_net:
+    driver: bridge
+
+volumes:
+  mongo_data:
+    
+    
