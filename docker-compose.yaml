@@ -20,7 +20,10 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - mongo-service
+      mongo-service:
+        condition: service_started
+        
+
     networks:
       - mongo_net
 
