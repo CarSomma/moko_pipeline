@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # run the pipeline 
     try:
         load_info = pipeline.run(fastapi_resource())
-        logging.info("PIPELINE INFO:\n{load_info}")
+        logging.info(f"PIPELINE INFO:\n{load_info}")
     except PipelineStepFailed as step_failed:
         logging.debug(f"WE FAILED AT THE STEP: {step_failed.step} WITH STEP INFO {step_failed.step_info}")
         raise
