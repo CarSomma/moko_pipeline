@@ -5,10 +5,11 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
+HOST = "fastapi_app"
 
 @dlt.resource(write_disposition="append", columns={"location": {"data_type": "complex"}})
 def fastapi_resource():#api_secret_key=dlt.secrets.value):
-    url = "http://localhost:8000/fetch_data_from_mongo"
+    url = f"http://{HOST}:8000/fetch_data_from_mongo"
     response = requests.get(url)#, params=params)
     response.raise_for_status()
     yield response.json()
