@@ -6,4 +6,5 @@ COPY get_data.py /fast_app_dir/
 COPY product_data.yaml /fast_app_dir/
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
-ENTRYPOINT [ "uvicorn", "fast_app:fast_appl"]
+ENTRYPOINT [ "uvicorn", "fast_app:fast_appl", "--host"]
+CMD [ "0.0.0.0" ]

@@ -12,8 +12,11 @@ from bson import json_util
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
+HOST = "mongo_container"
+PORT = 27017
 # Initialize MongoDB connection
-client = MongoClient("mongodb://localhost:27017/")
+#client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient(host=HOST,port=PORT)
 db = client["my_stream_database"]
 collection = db["my_stream_collection"]
 
@@ -66,4 +69,4 @@ async def fetch_data():
     
 
 if __name__ == "__main__":
-   uvicorn.run(fast_appl)
+   uvicorn.run(fast_appl, host="0.0.0.0")
