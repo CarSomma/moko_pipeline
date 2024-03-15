@@ -22,7 +22,7 @@ dag = DAG(
 start_container = docker.DockerOperator(
     task_id='start_container',
     image='mock-pipeline-eljob_service:latest',  # Replace with your Docker image
-    command='/bin/bash -c "docker run -d mock-pipeline-eljob_service:latest"',  # Command to start the container
+    command='/bin/bash -c "docker start eljob"',  # Command to start the container
     dag=dag,
 )
 
