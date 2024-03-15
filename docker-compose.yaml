@@ -7,12 +7,28 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - mongo_data:/data/db
+      - shared-data:/data/db
 
     networks:
     - mongo_net
   
-  fastapi_service:
+  postgres-service:
+    image: postgres:latest
+    container_name: postgres_container
+    ports:
+      - 5555:5432
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "mydatabase"
+
+    volumes:
+      - shared-data:/var/lib/postgres/data
+    
+    networks:
+    - mongo_net
+  
+  fastapi-service:
     build: 
       context: ./data_collector
       dockerfile: Dockerfile
@@ -20,10 +36,24 @@ services:
     ports:
       - 8000:8000
     depends_on:
+      postgres-service:
+        condition: service_started
       mongo-service:
         condition: service_started
-        
+    volumes:
+      - shared-data:/fast_app_dir
 
+    networks:
+      - mongo_net
+
+  eljob_service:
+    build:
+      context: ./data_extractor_loader
+      dockerfile: Dockerfile
+    container_name: eljob
+    depends_on:
+      fastapi-service:
+        condition: service_started
     networks:
       - mongo_net
 
@@ -33,6 +63,6 @@ networks:
     driver: bridge
 
 volumes:
-  mongo_data:
+  shared-data:
     
     
