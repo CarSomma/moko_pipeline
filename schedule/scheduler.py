@@ -16,12 +16,12 @@ dag = DAG(
     'schedule_container_startup',
     default_args=default_args,
     description='A DAG to schedule the startup of a Docker container',
-    schedule=timedelta(minutes=5),  # Adjust the schedule interval as needed
+    schedule=timedelta(minutes=5),  
 )
 
 start_container = docker.DockerOperator(
     task_id='start_container',
-    image='mock-pipeline-eljob_service:latest',  # Replace with your Docker image
+    image='mock-pipeline-eljob_service:latest',  
     command='/bin/bash -c "docker start eljob"',  # Command to start the container
     dag=dag,
 )
