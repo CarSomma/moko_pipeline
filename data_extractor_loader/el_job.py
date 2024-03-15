@@ -5,11 +5,12 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
-HOST = "fastapi_app"
+HOST_SOURCE = "fastapi_app"
+HOST_DESTINATION = "postgres_container"
 
-@dlt.resource(write_disposition="append", columns={"location": {"data_type": "complex"}})
+@dlt.resource(write_disposition="merge", columns={"location": {"data_type": "complex"}})
 def fastapi_resource():#api_secret_key=dlt.secrets.value):
-    url = f"http://{HOST}:8000/fetch_data_from_mongo"
+    url = f"http://{HOST_SOURCE}:8000/fetch_data_from_mongo"
     response = requests.get(url)#, params=params)
     response.raise_for_status()
     yield response.json()
@@ -20,13 +21,13 @@ if __name__ == '__main__':
     # configure the pipeline with your destination details
     pipeline = dlt.pipeline(
         pipeline_name='fastapi',
-        destination='duckdb',
+        destination=dlt.destinations.postgres(credentials=f"postgresql://postgres:postgres@{HOST_DESTINATION}/mydatabase"),
         dataset_name='fastapi_data',
     )
 
     # print the data yielded from resource
     data = list(fastapi_resource())
-    #print(data)
+    print(data)
 
     # run the pipeline 
     try:
