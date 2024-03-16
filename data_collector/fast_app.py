@@ -1,6 +1,6 @@
 from get_data import stream_data
 from fastapi import FastAPI 
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse
 from contextlib import asynccontextmanager
 import uvicorn
 import logging
@@ -22,7 +22,7 @@ collection = db["my_stream_collection"]
 
 # Define a background task for continuous data insertion
 async def background_insertion_task():
-    logging.info("STARTING BACKGROUND TASK FOR CONTINUOUS DATA INSERTION")
+    logging.info("STARTING BACKGROUND TASK FOR CONTINUOUS DATA INSERTION IN MONGO")
     async for data_point in stream_data():
         try:
             # Insert data into MongoDB collection

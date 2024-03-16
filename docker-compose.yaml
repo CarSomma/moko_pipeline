@@ -46,7 +46,7 @@ services:
     networks:
       - mongo_net
 
-  eljob_service:
+  scheduled_eljob_service:
     build:
       context: ./data_extractor_loader
       dockerfile: Dockerfile

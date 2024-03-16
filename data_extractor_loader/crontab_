@@ -1,0 +1,1 @@
+*/5 * * * * python /el_job_dir_app/el_job.py >> /logfile
