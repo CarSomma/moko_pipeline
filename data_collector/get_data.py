@@ -1,10 +1,8 @@
 # Package to generate fake data
 from faker import Faker
-# Package for logging 
 import logging
 import random 
 import json
-import time 
 import yaml
 from datetime import datetime
 import asyncio
@@ -41,7 +39,6 @@ async def stream_data():
         logging.info("INCOMING DATA:\n\n %s", json_data_incoming)
         yield json_data_incoming
         delay = random.uniform(10, 50)
-        #time.sleep(delay)
         await asyncio.sleep(delay)
 
 
