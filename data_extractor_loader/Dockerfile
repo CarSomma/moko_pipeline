@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.tx
 # and installs the specified cron jobs into the cron scheduler of the container. 
 RUN crontab crontab_
 
-# Set the entrypoint for the container to run crond
+# Set the entrypoint for the container to run crond in the foreground
 ENTRYPOINT ["crond", "-f"]
 
 
