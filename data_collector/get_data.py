@@ -32,7 +32,7 @@ async def stream_data():
             "action": action ,
             "product_name": product['name'],
             "category": category,
-            "price": product['price'],  # Generate random price between 10 and 1000 with step 10
+            "price": product['price'],  
             "quantity": None if action in ["click", "view"] else faker.random_digit_not_null()
         }
         json_data_incoming = json.dumps(data, indent=4)
