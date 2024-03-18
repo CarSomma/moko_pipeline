@@ -55,7 +55,7 @@ db.<collection-name>.find()
 
 ## Usage
 
-The FastAPI service automatically generates fake data upon startup and streams it to MongoDB. Clients can retrieve the raw data from MongoDB using a GET request to the provided endpoint.
+The FastAPI service automatically generates fake data upon startup and streams it to MongoDB. The ETL job service extracts data from MongoDB using a GET request to the provided endpoint, normalizes it, and loads it into the PostgreSQL database.
 
 ### Access FastAPI Data Stream
 
