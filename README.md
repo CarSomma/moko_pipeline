@@ -17,6 +17,7 @@ All components are containerized using Docker.
 - Python 3.11
 - FastAPI
 - MongoDB
+- Dlt
 
 ## Installation
 
