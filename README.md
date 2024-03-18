@@ -49,7 +49,9 @@ http://localhost:8000/docs
 
 ```bash
 docker exec -it <name-mongobd-container> mongosh
+show dbs
 use <name-database>
+show collection
 db.<collection-name>.find()
 ```
 
