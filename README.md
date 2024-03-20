@@ -24,7 +24,7 @@ All components are containerized using Docker.
 1. Clone this repository:
 
 ```bash
-git clone [https://github.com/CarSomma/moko_pipeline](https://github.com/CarSomma/moko_pipeline)
+git clone https://github.com/CarSomma/moko_pipeline.git
 ```
 
 2. Build the Docker images:
