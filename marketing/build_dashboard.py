@@ -1,5 +1,8 @@
 from dash import Dash, dcc, html
 import dash_bootstrap_components as dbc
+from time import sleep 
+
+sleep(300)
 
 
 dash_app = Dash(__name__,
