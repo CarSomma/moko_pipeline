@@ -14,7 +14,7 @@ dash_app = Dash(__name__,
         )
 server = dash_app.server  
 
-dash_app.title = "e-nMF Marketing Analytics: Understanding some nMGlings"
+dash_app.title = "e-nMF Marketing Analytics: Understanding some nMFlings"
 
 
 dash_app.layout = dbc.Container(
