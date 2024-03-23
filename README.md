@@ -99,14 +99,13 @@ This project utilizes the following libraries, frameworks, and tools:
 
 - **FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python.
 [FastAPI Documentation](https://fastapi.tiangolo.com)
-- PyMongo: A Python driver for MongoDB.
+- **PyMongo**: A Python driver for MongoDB.
 [PyMongo Documentation](https://pymongo.readthedocs.io/en/stable/)
-- Docker: A platform for building, sharing, and running containerized applications.
+- **Docker**: A platform for building, sharing, and running containerized applications.
 [Docker Documentation](https://docs.docker.com)
-- Dlt: is an open-source library that you can add to your Python scripts to load data from various and often messy data sources into well-structured, live datasets.
+- **Dlt**: is an open-source library that you can add to your Python scripts to load data from various and often messy data sources into well-structured, live datasets.
 [Dlt documentation](https://dlthub.com/docs/intro)
-
-- Dash: A productive Python framework for building web applications. Written on top of Flask, Plotly.js, and React.js, Dash is ideal for building data visualization apps with highly custom user interfaces in pure Python. [Dash documentation](https://dash.plotly.com)
+- **Dash**: A productive Python framework for building web applications. Written on top of Flask, Plotly.js, and React.js, Dash is ideal for building data visualization apps with highly custom user interfaces in pure Python. [Dash documentation](https://dash.plotly.com)
 
 ## Further Feature
 
