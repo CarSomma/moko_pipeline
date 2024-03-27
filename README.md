@@ -25,7 +25,7 @@ All components are containerized using Docker.
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/project.git
+git clone git@github.com:CarSomma/moko_pipeline.git
 ```
 
 2. Build the Docker images:
@@ -50,7 +50,9 @@ http://localhost:8000/docs
 
 ```bash
 docker exec -it <name-mongobd-container> mongosh
+show dbs
 use <name-database>
+show collection
 db.<collection-name>.find()
 ```
 
@@ -106,6 +108,7 @@ This project utilizes the following libraries, frameworks, and tools:
 - **Dlt**: is an open-source library that you can add to your Python scripts to load data from various and often messy data sources into well-structured, live datasets.
 [Dlt documentation](https://dlthub.com/docs/intro)
 - **Dash**: A productive Python framework for building web applications. Written on top of Flask, Plotly.js, and React.js, Dash is ideal for building data visualization apps with highly custom user interfaces in pure Python. [Dash documentation](https://dash.plotly.com)
+
 
 ## Further Feature
 

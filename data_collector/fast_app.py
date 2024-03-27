@@ -1,4 +1,4 @@
-from data_collector.generate_data import stream_data
+from generate_data import stream_data
 from fastapi import FastAPI 
 from fastapi.middleware.wsgi import WSGIMiddleware
 from fastapi.responses import StreamingResponse
@@ -8,8 +8,8 @@ import logging
 from pymongo import MongoClient
 import json
 import asyncio
-from bson import json_util
 from monitorboard import server_monitor
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
