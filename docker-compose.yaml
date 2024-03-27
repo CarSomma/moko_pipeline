@@ -57,18 +57,18 @@ services:
     networks:
       - mongo_net
   
-  dashboard_marketing_service:
-    build:
-      context: ./marketing
-      dockerfile: Dockerfile
-    container_name: dashboard_marketing
-    ports:
-      - 8001:8000
-    depends_on: 
-      scheduled_eljob_service:
-        condition: service_started
-    networks:
-      - mongo_net
+  # dashboard_marketing_service:
+  #   build:
+  #     context: ./marketing
+  #     dockerfile: Dockerfile
+  #   container_name: dashboard_marketing
+  #   ports:
+  #     - 8001:8000
+  #   depends_on: 
+  #     scheduled_eljob_service:
+  #       condition: service_started
+  #   networks:
+  #     - mongo_net
     
       
 
