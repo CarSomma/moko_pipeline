@@ -3,3 +3,6 @@ PyYAML
 fastapi
 pymongo
 uvicorn
+dash
+dash_bootstrap_components
+plotly

@@ -1,5 +1,6 @@
-from get_data import stream_data
+from generate_data import stream_data
 from fastapi import FastAPI 
+from fastapi.middleware.wsgi import WSGIMiddleware
 from fastapi.responses import StreamingResponse
 from contextlib import asynccontextmanager
 import uvicorn
@@ -7,6 +8,8 @@ import logging
 from pymongo import MongoClient
 import json
 import asyncio
+from monitorboard import server_monitor
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -41,6 +44,8 @@ async def lifespan(task=background_insertion_task()):
 
 # Integrate lifespan event handler with FastAPI application
 fast_appl = FastAPI(lifespan=lifespan)
+
+fast_appl.mount("/real-time-monitoring", WSGIMiddleware(server_monitor))
 
 
 # GET endpoint to retrieve hello world message

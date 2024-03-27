@@ -2,13 +2,14 @@
 
 ## Overview
 
-This project is a data pipeline that automatically extracts data from the endpoint of a FastAPI service, normalizes the data, and loads it into a PostgreSQL database. The pipeline consists of four main components:
+This project is a data pipeline that automatically extracts data from the endpoint of a FastAPI service, normalizes the data, and loads it into a PostgreSQL database. Additionally, it includes service that performs real-time analytics using Dash and aggregates analytics. The pipeline consists of five main components:
 
 1. **FastAPI Service**: Exposes an endpoint to generate fake data and stream it.
 2. **MongoDB**: Stores the raw data streamed from the FastAPI service.
 3. **ETL (Extract, Transform, Load) Job Service**: Extracts data from MongoDB via FastApi service, normalizes it, and loads it into PostgreSQL.
 4. **PostgreSQL Database**: Stores the normalized data.
 All components are containerized using Docker.
+5. **Dashboard service with Dash**: Build Dashboards of aggregates aggregates analytics using Dash.
 
 
 ## Requirements
@@ -105,7 +106,9 @@ This project utilizes the following libraries, frameworks, and tools:
 - **Docker**: A platform for building, sharing, and running containerized applications.
 [Docker Documentation](https://docs.docker.com)
 - **Dlt**: is an open-source library that you can add to your Python scripts to load data from various and often messy data sources into well-structured, live datasets.
-[Dlt Documentation](https://dlthub.com/docs/intro)
+[Dlt documentation](https://dlthub.com/docs/intro)
+- **Dash**: A productive Python framework for building web applications. Written on top of Flask, Plotly.js, and React.js, Dash is ideal for building data visualization apps with highly custom user interfaces in pure Python. [Dash documentation](https://dash.plotly.com)
+
 
 ## Further Feature
 
