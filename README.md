@@ -9,7 +9,7 @@ This project is a data pipeline that automatically extracts data from the endpoi
 3. **ETL (Extract, Transform, Load) Job Service**: Extracts data from MongoDB via FastApi service, normalizes it, and loads it into PostgreSQL.
 4. **PostgreSQL Database**: Stores the normalized data.
 All components are containerized using Docker.
-5. **Dashboard service with Dash**: Build Dashboards of aggregate analytics using Dash.
+5. **Dashboard app with Dash**: Build Dashboards of aggregate analytics using Dash.
 
 
 ## Requirements
