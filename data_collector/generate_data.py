@@ -42,15 +42,18 @@ async def stream_data():
             
             action = "view"
             actions = ["view"]
-            max_user_action = random.randint(2,20)
+            max_user_action = random.randint(2,10)
+            print(max_user_action)
             user_action = 1
             while user_action <= max_user_action:
                 action = random.choices(population=["click", "view", "purchase"],weights=TRANSITION_PROBABILITIES[action])[0]
                 actions.append(action)
                 user_action += 1
+                
                 if action != "purchase":
                     continue
                 else:
+                    print(user_action)
                     break
 
             data = {
