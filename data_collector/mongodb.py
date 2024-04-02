@@ -5,7 +5,7 @@ import logging
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
-HOST = "0.0.0.0" #"mongo_container" # "0.0.0.0" #
+HOST = "mongo_container" # "0.0.0.0" #
 PORT = 27017
 # Initialize MongoDB connection
 #client = MongoClient("mongodb://localhost:27017/")
