@@ -73,6 +73,9 @@ def update_chart(n):
 
     colors = ['blue','green','crimson']
 
+    sorted_data = sorted(zip(actions, counts), key=lambda x: x[0])
+    actions, counts = zip(*sorted_data)
+
     # Create plotly figure
     fig = go.Figure()
     fig.add_trace(go.Bar(
@@ -81,6 +84,7 @@ def update_chart(n):
         ))
 
     fig.update_layout(
+        xaxis=dict(categoryorder='array', categoryarray=actions),
         title=dict(text=f'User Web-Interaction Count ({sum(counts)})',
                    xanchor="center",
                    yanchor='top',
