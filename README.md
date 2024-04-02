@@ -9,7 +9,7 @@ This project is a data pipeline that automatically extracts data from the endpoi
 3. **ETL (Extract, Transform, Load) Job Service**: Extracts data from MongoDB via FastApi service, normalizes it, and loads it into PostgreSQL.
 4. **PostgreSQL Database**: Stores the normalized data.
 All components are containerized using Docker.
-5. **Dashboard service with Dash**: Build Dashboards of aggregates aggregates analytics using Dash.
+5. **Dashboard service with Dash**: Build Dashboards of aggregate analytics using Dash.
 
 
 ## Requirements
@@ -19,6 +19,7 @@ All components are containerized using Docker.
 - FastAPI
 - MongoDB
 - Dlt
+- Dash
 
 ## Installation
 
@@ -58,7 +59,7 @@ db.<collection-name>.find()
 
 ## Usage
 
-The FastAPI service automatically generates fake data upon startup and streams it to MongoDB. The ETL job service extracts data from MongoDB using a GET request to the provided endpoint, normalizes it, and loads it into the PostgreSQL database.
+The FastAPI service automatically generates fake data upon startup and streams it to MongoDB. Additionally, a Dash app for real-time analytics is mounted to one of the FastAPI endpoint. The ETL job service extracts data from MongoDB using a GET request to the provided endpoint, normalizes it, and loads it into the PostgreSQL database.
 
 ### Access FastAPI Data Stream
 
@@ -69,8 +70,6 @@ Example:
 ```bash
 curl http://localhost:8000/fetch_data_from_mongo
 ```
-
-
 
 ### Access PostgreSQL Normalized data
 
