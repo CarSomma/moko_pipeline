@@ -10,10 +10,10 @@ PORT = 27017
 # Initialize MongoDB connection
 #client = MongoClient("mongodb://localhost:27017/")
 client = MongoClient(host=HOST,port=PORT)
-# db = client["my_stream_database"]
-# collection = db["my_stream_collection"]
-db = client["my_new_database"]
-collection = db["my_new_collection"]
+db = client["my_stream_database"]
+collection = db["my_stream_collection"]
+# db = client["my_new_database"]
+# collection = db["my_new_collection"]
 
 #actions = ["view","click","purchase"]
 #action_filter = {"location": {"$elemMatch": {"$regex": "^Europe"}}}

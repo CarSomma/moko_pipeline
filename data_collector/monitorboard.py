@@ -5,7 +5,7 @@ import plotly.graph_objs as go
 from time import sleep 
 from mongodb import count_actions
 
-#sleep(300)
+sleep(3)
 
 
 dash_app = Dash(__name__,
