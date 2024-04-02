@@ -88,6 +88,7 @@ SELECT * from <schema>.<table_name>;
 - PostgreSQL configurations can be modified in the docker-compose.yaml file.
 
 ## Folder Structure
+```
 Mock Pipeline 🪈
 │
 ├── data_collector
@@ -112,28 +113,29 @@ Mock Pipeline 🪈
 ├── LICENSE
 │
 └── README.md
+```
 
 1. **data_collector**:
-  - This directory contains files related to the data collection component of the pipeline.
-  - **Dockerfile**: Contains instructions to build the Docker image for the data collector service.
-  - **assets**: Directory containing assets used by the data collector service, such as images (e.g., logo_nmf4.jpeg).
-  - **fast_app.py**: Python script defining the FastAPI service for generating fake data and streaming it.
-  - **generate_data.py**: Python script for generating fake data.
-  - **mongodb.py**: Python script for interacting with MongoDB.
-  - **monitorboard.py**: Python script for real-time analytics using Dash.
-  - **product_data.yaml**: YAML file containing product data.
-  - **requirements.txt: Text file listing dependencies required by the data collector service.
+    - This directory contains files related to the data collection component of the pipeline.
+    - **Dockerfile**: Contains instructions to build the Docker image for the data collector service.
+    - **assets**: Directory containing assets used by the data collector service, such as images (e.g., logo_nmf4.jpeg).
+    - **fast_app.py**: Python script defining the FastAPI service for generating fake data and streaming it.
+    - **generate_data.py**: Python script for generating fake data.
+    - **mongodb.py**: Python script for interacting with MongoDB.
+    - **monitorboard.py**: Python script for real-time analytics using Dash.
+    - **product_data.yaml**: YAML file containing product data.
+    - **requirements.txt**: Text file listing dependencies required by the data collector service.
 
 
 2. **data_extractor_loader**:
-  - This directory contains files related to the ETL (Extract, Transform, Load) job service of the pipeline.
-  - **Dockerfile**: Contains instructions to build the Docker image for the ETL job service.
-  - **crontab_**: File containing cron jobs for scheduling tasks.
-  - **el_job.py**: Python script defining the ETL job service for extracting data from MongoDB, transforming it (normalize it), and loading it into PostgreSQL.
-  - **requirements.txt**: Text file listing dependencies required by the ETL job service.
+    - This directory contains files related to the ETL (Extract, Transform, Load) job service of the pipeline.
+    - **Dockerfile**: Contains instructions to build the Docker image for the ETL job service.
+    - **crontab_**: File containing cron jobs for scheduling tasks.
+    - **el_job.py**: Python script defining the ETL job service for extracting data from MongoDB, transforming it (normalize it), and loading it into PostgreSQL.
+    - **requirements.txt**: Text file listing dependencies required by the ETL job service.
 
 3. **docker-compose.yaml**:
-  - This file contains configurations for Docker Compose, defining the services, networks, and volumes.
+    - This file contains configurations for Docker Compose, defining the services, networks, and volumes.
 
 ## Contributing
 
