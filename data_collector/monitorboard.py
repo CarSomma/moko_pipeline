@@ -1,9 +1,11 @@
 from dash import Dash, dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
+
 import plotly.graph_objs as go
+from plotly.subplots import make_subplots
 from time import sleep 
-from mongodb import count_actions
+from mongodb import count_actions, category_total_revenue
 
 sleep(3)
 
@@ -68,20 +70,31 @@ dash_app.layout = dbc.Container(
     [Input('interval-component', 'n_intervals')]
 )
 def update_chart(n):
+
     # Generate new data point
     _, actions, counts = count_actions()
-
-    colors = ['blue','green','crimson']
-
     sorted_data = sorted(zip(actions, counts), key=lambda x: x[0])
     actions, counts = zip(*sorted_data)
 
-    # Create plotly figure
-    fig = go.Figure()
-    fig.add_trace(go.Bar(
+    _, categories, total_revenues = category_total_revenue()
+    
+    colors = ['blue','green','crimson']
+
+
+
+    # Create plotly figure subplots
+    fig = make_subplots(
+        rows=1, cols=2,
+        subplot_titles=(
+            f'User Web-Interaction Count ({sum(counts)})', 
+            "Total Revenue "))
+
+    
+    fig.add_trace(
+        go.Bar(
         x=actions,y=counts,opacity=0.5, 
-        texttemplate=counts, marker_color=colors
-        ))
+        texttemplate=counts, marker_color=colors),
+        row=1, col=1)
 
     fig.update_layout(
         xaxis=dict(categoryorder='array', categoryarray=actions),
@@ -94,7 +107,7 @@ def update_chart(n):
                              size= 20)),
         plot_bgcolor="white",
         barcornerradius="20%",
-        width=500, height=500
+        #width=500, height=500
         
     )
 
@@ -102,14 +115,16 @@ def update_chart(n):
     ticks='outside',
     showline=False,
     linecolor='black',
-    tickfont=dict(family='Rockwell', size=14)
+    tickfont=dict(family='Rockwell', size=14),
+    row=1, col=1,
 )
     fig.update_yaxes(
         mirror=True,
         ticks='outside',
         showline=False,
         linecolor='black',
-        visible=False
+        visible=False,
+        row=1, col=1
         
     )
 
