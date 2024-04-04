@@ -87,7 +87,7 @@ def update_chart(n):
         rows=1, cols=2,
         subplot_titles=(
             f'User Web-Interaction Count ({sum(counts)})', 
-            "Total Revenue "))
+            f"Total Revenue $ ({sum(total_revenues)}) "))
 
     
     fig.add_trace(
@@ -95,21 +95,12 @@ def update_chart(n):
         x=actions,y=counts,opacity=0.5, 
         texttemplate=counts, marker_color=colors),
         row=1, col=1)
-
-    fig.update_layout(
-        xaxis=dict(categoryorder='array', categoryarray=actions),
-        title=dict(text=f'User Web-Interaction Count ({sum(counts)})',
-                   xanchor="center",
-                   yanchor='top',
-                   y=0.9,
-                   x=0.5,
-                   font=dict(family="Rockwell",
-                             size= 20)),
-        plot_bgcolor="white",
-        barcornerradius="20%",
-        #width=500, height=500
-        
-    )
+    
+    fig.add_trace(
+        go.Bar(
+        x=categories,y=total_revenues,opacity=0.5, 
+        texttemplate=total_revenues, marker_color=colors),
+        row=1, col=2)
 
     fig.update_xaxes(
     ticks='outside',
@@ -125,6 +116,38 @@ def update_chart(n):
         linecolor='black',
         visible=False,
         row=1, col=1
+        
+    )
+
+    fig.update_xaxes(
+    ticks='outside',
+    showline=False,
+    linecolor='black',
+    tickfont=dict(family='Rockwell', size=14),
+    row=1, col=2,
+)
+    fig.update_yaxes(
+        mirror=True,
+        ticks='outside',
+        showline=False,
+        linecolor='black',
+        visible=False,
+        row=1, col=2
+        
+    )
+
+    fig.update_layout(
+        xaxis=dict(categoryorder='array', categoryarray=actions),
+        # title=dict(text=f'User Web-Interaction Count ({sum(counts)})',
+        #            xanchor="center",
+        #            yanchor='top',
+        #            y=0.9,
+        #            x=0.5,
+        #            font=dict(family="Rockwell",
+        #                      size= 20)),
+        plot_bgcolor="white",
+        barcornerradius="20%",
+        #width=500, height=500
         
     )
 

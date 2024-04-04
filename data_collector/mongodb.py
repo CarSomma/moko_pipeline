@@ -5,15 +5,15 @@ import logging
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
-HOST = "0.0.0.0"#"mongo_container" # "0.0.0.0" #
+HOST = "mongo_container" # "0.0.0.0" #
 PORT = 27017
 # Initialize MongoDB connection
 #client = MongoClient("mongodb://localhost:27017/")
 client = MongoClient(host=HOST,port=PORT)
-#db = client["my_stream_database"]
-#collection = db["my_stream_collection"]
-db = client["my_new_database"]
-collection = db["my_new_collection"]
+db = client["my_stream_database"]
+collection = db["my_stream_collection"]
+# db = client["my_new_database"]
+# collection = db["my_new_collection"]
 
 #actions = ["view","click","purchase"]
 #action_filter = {"location": {"$elemMatch": {"$regex": "^Europe"}}}
