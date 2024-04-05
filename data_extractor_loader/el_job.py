@@ -8,7 +8,10 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 HOST_SOURCE = "fastapi_app"
 HOST_DESTINATION = "postgres_container"
 
-@dlt.resource(write_disposition="merge", columns={"location": {"data_type": "complex"}})
+@dlt.resource(write_disposition="merge", columns={
+    "location": {"data_type": "complex"},
+    "action": {"data_type": "complex"}
+})
 def fastapi_resource():#api_secret_key=dlt.secrets.value):
     url = f"http://{HOST_SOURCE}:8000/fetch_data_from_mongo"
     response = requests.get(url)#, params=params)
