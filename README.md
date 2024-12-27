@@ -30,13 +30,13 @@ git clone https://github.com/yourusername/project.git
 2. Build the Docker images:
 
 ```bash
-docker-compose build
+docker compose build
 ```
 
 3. Start the services:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 4. Access the FastAPI service:
