@@ -27,25 +27,19 @@ All components are containerized using Docker.
 git clone https://github.com/yourusername/project.git
 ```
 
-2. Build the Docker images:
+2. Build the Docker images and start the services in one go:
 
 ```bash
-docker compose build
+docker compose up --build
 ```
 
-3. Start the services:
-
-```bash
-docker compose up -d
-```
-
-4. Access the FastAPI service:
+3. Access the FastAPI service:
 
 ```bash
 http://localhost:8000/docs
 ```
 
-5. Access the MongoDB database:
+4. Access the MongoDB database:
 
 ```bash
 docker exec -it <name-mongobd-container> mongosh
