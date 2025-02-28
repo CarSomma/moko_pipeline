@@ -73,7 +73,8 @@ You can access the normalized data in PostgreSQL by accessing the postgresql con
 docker exec -it <name-postgres-container> psql -U <postgres-user> -d <postgres-database>
 ```
 ```sql
-SELECT * from <schema>.<table_name>;
+SELECT * from <schema>.<table_name>
+LIMIT 10;
 ```
 ## Configuration
 
