@@ -51,7 +51,7 @@ http://localhost:8000/docs
 docker exec -it <name-mongobd-container> mongosh
 show dbs
 use <name-database>
-show collection
+show collections
 db.<collection-name>.find()
 ```
 
