@@ -29,31 +29,25 @@ All components are containerized using Docker.
 git clone git@github.com:CarSomma/moko_pipeline.git
 ```
 
-2. Build the Docker images:
+2. Build the Docker images and start the services in one go:
 
 ```bash
-docker-compose build
+docker compose up --build
 ```
 
-3. Start the services:
-
-```bash
-docker-compose up -d
-```
-
-4. Access the FastAPI service:
+3. Access the FastAPI service:
 
 ```bash
 http://localhost:8000/docs
 ```
 
-5. Access the MongoDB database:
+4. Access the MongoDB database:
 
 ```bash
 docker exec -it <name-mongobd-container> mongosh
 show dbs
 use <name-database>
-show collection
+show collections
 db.<collection-name>.find()
 ```
 
@@ -79,7 +73,8 @@ You can access the normalized data in PostgreSQL by accessing the postgresql con
 docker exec -it <name-postgres-container> psql -U <postgres-user> -d <postgres-database>
 ```
 ```sql
-SELECT * from <schema>.<table_name>;
+SELECT * from <schema>.<table_name>
+LIMIT 10;
 ```
 ## Configuration
 
